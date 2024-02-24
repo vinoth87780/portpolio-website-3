@@ -2,6 +2,9 @@ import React from "react";
 import HeroBody from "./Components/HeroBody";
 import NavBar from "./Components/NavBar";
 import AboutSection from "./Components/AboutSection";
+import ProjectsSection from "./Components/ProjectsSection";
+import EmailSecton from "./Components/EmailSecton";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   return (
@@ -10,7 +13,10 @@ export default function Home() {
       <div className="container mt-24 mx-auto px-12 py-4">
         <HeroBody />
         <AboutSection />
+        <ProjectsSection />
+        <EmailSecton />
       </div>
+      <Footer />
     </main>
   );
 }
