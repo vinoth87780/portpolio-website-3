@@ -1,10 +1,30 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
+import Image from "next/image";
+import emailjs from "@emailjs/browser";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
-import Image from "next/image";
-import Link from "next/link";
 
 const EmailSecton = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_z0mriq5", "template_b354gc9", form.current, {
+        publicKey: "gasxxaNciYKQ3MJRj",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          console.log("Message send");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   return (
     <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-purple-900 to-transparent rounded-full h-80 w-80 z-0  blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 translate-1/2 "></div>
@@ -16,25 +36,23 @@ const EmailSecton = () => {
           to get back to you!
         </p>
         <div className=" socials flex flex-row gap-2 ">
-          <Link href="github.com">
+          <a href="https://github.com/vinoth87780" target="_blank">
             <Image src={GithubIcon} alt="Github Icon" />
-          </Link>
-          <Link href="linkedin.com">
+          </a>
+          <a href="https://linkedin.com/in/vinothkumar-pazhani" target="_blank">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
-          </Link>
+          </a>
         </div>
       </div>
       <div className="">
-        <form className=" flex flex-col ">
+        <form className=" flex flex-col " ref={form} onSubmit={sendEmail}>
           <div className="mb-6">
-            <label
-              htmlFor="email"
-              className="text-white block mb-2  text-sm font-medium"
-            >
-              Your email
+            <label className="text-white block mb-2  text-sm font-medium">
+              Your name
             </label>
             <input
-              type="email"
+              type="text"
+              name="user_name"
               id="email"
               required
               className="bg-[#18191e] border-[#33353f] placeholder-[#9ca2a9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
@@ -42,23 +60,20 @@ const EmailSecton = () => {
             />
           </div>
           <div className="mb-6">
-            <label
-              htmlFor="subject"
-              className="text-white block mb-2  text-sm font-medium"
-            >
-              Subject
+            <label className="text-white block mb-2  text-sm font-medium">
+              Your Email
             </label>
             <input
-              type="text"
-              id="subject"
+              type="email"
+              name="user_email"
               required
               className="bg-[#18191e] border-[#33353f] placeholder-[#9ca2a9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-              placeholder="Just saying hi"
+              placeholder="Enter Your Email"
             />
           </div>
           <div className="mb-6">
             <label
-              htmlFor="message"
+              name="message"
               className="text-white block text-sm mb-2 font-medium"
             >
               Message
@@ -72,6 +87,7 @@ const EmailSecton = () => {
           </div>
           <button
             type="submit"
+            value="Send"
             className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
           >
             Send Message

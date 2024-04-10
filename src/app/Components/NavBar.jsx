@@ -26,9 +26,9 @@ const NavBar = () => {
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-2">
         <Link
           href={"/"}
-          className=" text-2xl md:text-5xl text-white font-semibold"
+          className=" text-2xl md:text-3xl text-white font-semibold"
         >
-          LOGO
+          <span className="text-purple-600"> Vinoth</span>Kumar P
         </Link>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (

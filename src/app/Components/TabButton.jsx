@@ -5,7 +5,7 @@ const TabButton = ({ active, selectTab, children }) => {
     ? "text-white border-b border-purple-500"
     : "text-[#adb7be] border-b border-purple-500";
   return (
-    <button onClick={selectTab}>
+    <button onClick={selectTab} className="text-lg">
       <p className={`mr-3 font-semibold hover:text-white ${buttonClasses}`}>
         {children}
       </p>
