@@ -1,17 +1,22 @@
-import Image from "next/image";
 import React from "react";
+import HeroBody from "./Components/HeroBody";
+import NavBar from "./Components/NavBar";
+import AboutSection from "./Components/AboutSection";
+import ProjectsSection from "./Components/ProjectsSection";
+import EmailSecton from "./Components/EmailSecton";
+import Footer from "./Components/Footer";
 
-const page = () => {
+export default function Home() {
   return (
-    <div>
-      <Image
-        alt="not vissible"
-        width={300}
-        height={300}
-        src={"/public/image.png"}
-      />
-    </div>
+    <main className="flex min-h-screen flex-col bg-[#121212]  ">
+      <NavBar />
+      <div className="container mt-24 mx-auto px-12 py-4">
+        <HeroBody />
+        <AboutSection />
+        <ProjectsSection />
+        <EmailSecton />
+      </div>
+      <Footer />
+    </main>
   );
-};
-
-export default page;
+}
