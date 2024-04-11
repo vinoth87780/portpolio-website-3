@@ -33,7 +33,7 @@ const HeroBody = () => {
             />
           </h1>
           <p className="text-[#adb7be]  lg:text-xl text-base sm:text-lg mb-6">
-            I am a fresher, looking for oppourtunities to build an mobile app
+            I am a fresher, looking for Job opportunities to build an mobile app
             and website.
           </p>
           <div>
@@ -52,7 +52,7 @@ const HeroBody = () => {
                 <a
                   target="_blank"
                   href={
-                    "https://drive.google.com/file/d/1NvJ4B8tWnIuojmbbFkQk387kC1ueSsvl/view?usp=drive_link"
+                    "https://drive.google.com/file/d/1NvJ4B8tWnIuojmbbFkQk387kC1ueSsvl/view?usp=sharing"
                   }
                 >
                   Download CV
@@ -62,13 +62,13 @@ const HeroBody = () => {
           </div>
         </div>
         <div className="col-span-5 place-self-center m-4 lg:m-0">
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+          <div className="rounded-full bg-yellow-50 w-[250px] h-[250px] lg:w-[450px] lg:h-[450px] relative  border-4 border-purple-500">
             <Image
               className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 "
               alt="hai"
               src="/image/hero-image.png"
-              height={300}
-              width={300}
+              height={500}
+              width={500}
             />
           </div>
         </div>
